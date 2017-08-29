@@ -61,6 +61,12 @@ public class Log extends javax.swing.JFrame {
             }
         });
 
+        t1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t1ActionPerformed(evt);
+            }
+        });
+
         t2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t2ActionPerformed(evt);
@@ -174,6 +180,7 @@ public class Log extends javax.swing.JFrame {
          {
              adlog log=new adlog();
              log.setVisible(true);
+             dispose();
          }
            
            ps.executeQuery();
@@ -194,9 +201,9 @@ public class Log extends javax.swing.JFrame {
        {
            Class.forName("org.apache.derby.jdbc.ClientDriver");
            Connection con= DriverManager.getConnection("jdbc:derby://localhost:1527/sample","app","app");
-           PreparedStatement ps=con.prepareStatement("Select * from record where id=? and username=?");
-            ps.setString(1, b);
-            ps.setInt(2, a);
+           PreparedStatement ps=con.prepareStatement("Select * from record where id=? and name=?");
+            ps.setString(2, b);
+            ps.setInt(1, a);
             
            ResultSet rs= ps.executeQuery();
          if(rs.next())
@@ -204,6 +211,7 @@ public class Log extends javax.swing.JFrame {
              Stuhome lo=new Stuhome();
              lo.show(b);
              lo.setVisible(true);
+             dispose();
          }
            
            ps.executeQuery();
@@ -219,6 +227,10 @@ public class Log extends javax.swing.JFrame {
     private void jb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb2ActionPerformed
+
+    private void t1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t1ActionPerformed
 
     /**
      * @param args the command line arguments
